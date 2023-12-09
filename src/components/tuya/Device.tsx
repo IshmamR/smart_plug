@@ -76,7 +76,7 @@ const DevicePage: React.FC = () => {
       const toggleMode = switch_stat ? "off" : "on";
       await axios.get<TGetDeviceInfoResponse>(
         // "http://localhost:7000/tuya/turn-switch/" + toggleMode
-        "https://smart-outlet.onrender.com/tuya/turn-switch" + toggleMode
+        "https://smart-outlet.onrender.com/tuya/turn-switch/" + toggleMode
       );
       setDeviceInfo((prev) => {
         if (!prev) return prev;
@@ -93,8 +93,6 @@ const DevicePage: React.FC = () => {
       setToggleLoading(false);
     }
   }, [deviceInfo]);
-
-  console.log(deviceInfo?.status[0]);
 
   return (
     <MainContainer>
